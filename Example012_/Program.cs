@@ -18,6 +18,28 @@ void FillPrint(int[] coll){
     }
 }
 
+int IndexOff(int[] collection, int find){
+
+int count = collection.Length;
+int index = 0;
+int position = -1;
+    while(index < count)
+    {  
+        if(collection[index] == find)
+        {
+            position = index;
+            break;
+        }
+        index++;  
+    }
+    return position;
+}
+
+int[] array = new int[10];
 
 FillArray(array);
 FillPrint(array);
+Console.WriteLine();
+
+int pos = IndexOff(array, 400);
+Console.WriteLine(pos);
