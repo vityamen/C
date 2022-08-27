@@ -33,6 +33,5 @@ string CheckThePolindrom(int N)
 int N = 0;
 Console.WriteLine("Введите пятизначное число: ");
 N = Convert.ToInt32(Console.ReadLine()); 
-Console.WriteLine("Ошибка ввода ");
 string Pol = CheckThePolindrom(N);
 Console.WriteLine($"Введенное число: {N} {Pol} ");
