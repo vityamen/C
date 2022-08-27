@@ -18,7 +18,7 @@ string GetThirdDigitFromNumber(string number)
 }
 
 
-string RandNum = GetNumRandinRange(10, 9999);
+string RandNum = GetNumRandinRange(10, 959);
 string ThirdDigit = GetThirdDigitFromNumber(RandNum);
 
 Console.WriteLine($"{RandNum} в числе {ThirdDigit} цифр");
