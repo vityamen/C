@@ -17,7 +17,5 @@ void FillPrint(int[] coll){
     position++; 
     }
 }
-
-
-FillArray(array);
-FillPrint(array);
+FillArray(array[8]);
+FillPrint(array[]);
