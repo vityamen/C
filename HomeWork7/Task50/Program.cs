@@ -11,6 +11,7 @@
 17 -> такого числа в массиве нет
 */
 Console.Clear();
+
 Console.Write("Введите количество строк массива: ");
 int rows = int.Parse(Console.ReadLine());
 
@@ -20,10 +21,10 @@ int[,] array = GetArray(rows,columns, 0,10);
 PrintArray(array);
 
 Console.WriteLine("Введите номер строки: ");
-int i = int.Parse(Console.ReadLine());
+int numRow = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите номер столбца: ");
-int j = int.Parse(Console.ReadLine());
-GetElemetFromIndex(array, i, j);
+int numColumn = int.Parse(Console.ReadLine());
+GetElemetFromIndex(array, numRow, numColumn, rows, columns);
 
 int[,] GetArray(int m, int n, int min, int max)
 {
@@ -50,7 +51,14 @@ void PrintArray(int[,] array)
     }
 }
 
-void GetElemetFromIndex(int[,] array, int i, int j)
+void GetElemetFromIndex(int[,] array, int i, int j, int m, int n)
 {
-    Console.WriteLine($"Элемент{i}{j} = {array[i,j]}");
+    if (i > m || j > n)
+    {
+        Console.WriteLine($"Элемент[{i},{j}] не существует");
+    }
+    else
+    {
+    Console.WriteLine($"Элемент[{i},{j}] = {array[i,j]}");
+    }
 }

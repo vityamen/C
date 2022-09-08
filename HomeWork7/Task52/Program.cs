@@ -1,5 +1,6 @@
 ﻿/*
-Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее
+арифметическое элементов в каждом столбце.
 Например, задан массив:
 1 4 7 2
 5 9 2 3
@@ -15,8 +16,7 @@ int columns = int.Parse(Console.ReadLine());
 int[,] array = GetArray(rows,columns, 0,10);
 double average = 0;
 PrintArray(array);
-average = GetAverage(int[,] array);
-Console.WriteLine(average);
+average = GetAverage(array);
 
 int[,] GetArray(int m, int n, int min, int max)
 {
@@ -43,15 +43,20 @@ void PrintArray(int[,] array)
     }
 }
 
-int GetAverage(int[,] array)
+double GetAverage(int[,] array)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    double result = 0;
+    
+    for (int i = 0; i < array.GetLength(1); i++)
     {
-        for (int j = 0; j < n; j++)
-        {
-            result = result + array[i,j];
-            console.WriteLine(result);
+        double sum = 0;
+        for (int j = 0; j < array.GetLength(0); j++)
+        {   
+            sum += array[j,i];
         }
+        result = sum / array.GetLength(0);
+        Console.WriteLine($"среднее арифметическое в {i} столбце = {result}");
+        
     }
     return result;
 }
