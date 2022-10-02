@@ -14,10 +14,12 @@ int size = int.Parse(Console.ReadLine());
 
 string[] array = GetArray(size);
 PrintArray(array);
-Console.WriteLine("");
-string[] result = ChangeArray(array);
-Console.WriteLine("");
+Console.WriteLine();
+string[] newArray = ChangeArray(array);
+Console.WriteLine();
+string[] result = ReplaceArray(newArray);
 PrintArray(result);
+
 
 string[] GetArray(int size)
 {
@@ -38,22 +40,46 @@ void PrintArray(string[] array)
         { 
         if(i < length-1)
         {
-            Console.Write($"{array[i]} ");
+            Console.Write($"\"{array[i]}\", ");
         }
-        else Console.Write($"{array[i]} ");
+        else Console.Write($"\"{array[i]}\"");
         }
     }
 }
 
 string[] ChangeArray(string[] array)
 {
-    string[] result = new string[array.Length];
+    string[] result = new string[array.GetLength(0)];
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i].Length <= 3)
         {
             result[i] = array[i];
         }
+        else 
+            result[i] = "";
+    }
+    return result;
+}
+
+string[] ReplaceArray(string[] array)
+{
+    string[] newmass = new string[array.Length];
+    int j=0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        int length = array[i].Length;
+        if (length > 0)
+        {
+            newmass[j] = array[i];
+            j++;
+        }
+    }
+    string[] result = new string[j];
+    
+    for (int i = 0; i < j; i++)
+    {
+        result[i] = newmass[i];
     }
     return result;
 }
